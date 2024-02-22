@@ -1,16 +1,31 @@
-# This is a sample Python script.
+import random
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+#region defs
+def file_input():
+    text = input('putin: ')
+    return text
 
+"""
+def verify_file():
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+def contains_text():
+"""
+def disorder_words(text):
+    words = text.split()
+    disorder_text = []
+    for word in words:
+        if len(word) <= 3:
+            disorder_text.append(word)
+            continue
+        first_word = word[0]
+        last_word = word[-1]
+        middle_letters = list(word[1:-1])  # Corregido aquí
+        random.shuffle(middle_letters)
+        disorder_word = first_word + ''.join(middle_letters) + last_word
+        disorder_text.append(disorder_word)
+    return ' '.join(disorder_text)
 
+#endregion
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+text = file_input()
+print(disorder_words(text))
