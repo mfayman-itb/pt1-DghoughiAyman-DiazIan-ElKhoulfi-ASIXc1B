@@ -1,9 +1,17 @@
+"""
+Ayman Dghoughi, Ian Díaz i Nizar ElKhoulfi
+20/03/2024
+ASIXc1 UF2 A2 Disseny Modular i Descendent
+Descripció: definitions of different types of inputs (text, url, chatgpt and file)
+"""
+#region Imports
 import os.path
-
 import requests
 import json
 from openai import OpenAI
+#endregion
 
+#region Functions
 def get_gpt_api_key():
     with open("gptapikey", 'r') as apikey:
         key = str(apikey.read())
@@ -57,6 +65,7 @@ def get_data_from_file(opt):
         print(f'File "{file}" not found.')
         exit(1)
     return text
+#endregion
 
 #apikey = get_gpt_api_key()
 #print(get_data_from_chatgpt(apikey))

@@ -1,3 +1,9 @@
+"""
+Ayman Dghoughi, Ian Díaz i Nizar ElKhoulfi
+20/03/2024
+ASIXc1 UF2 A2 Disseny Modular i Descendent
+Descripció: main program and menu
+"""
 #region Imports
 from data_source import *
 from crazy_words import *
@@ -5,10 +11,7 @@ import random
 import string
 #endregion
 
-#region Variables i constants
-#endregion
-
-#region Funcions
+#region Functions
 def menu():
     try:
         options = ['1','2','3','4']
@@ -28,14 +31,13 @@ def menu():
         return text
     except Exception as e:
         print(e)
+#endregion
 
+#region main
 def main():
     text = menu()
     clean = fix_punctuation(text)
     result = disorder_words(clean)
     return print(result)
-#endregion
-
-#region main
-main()
+    main()
 #endregion

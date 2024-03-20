@@ -1,8 +1,19 @@
+"""
+Ayman Dghoughi, Ian Díaz i Nizar ElKhoulfi
+20/03/2024
+ASIXc1 UF2 A2 Disseny Modular i Descendent
+Descripció: principal program to disorder strings
+"""
+#region Imports
 import random
 import string
+#endregion
 
+#region Variables and Constants
 ALLOWED = string.ascii_letters + string.digits
+#endregion
 
+#region Functions
 def fix_punctuation(text):
     words = []
     current_word = ''
@@ -31,4 +42,4 @@ def disorder_words(words):
             disorder_word = first_letter + ''.join(middle_letters) + last_letter
             disorder_text.append(disorder_word)
     return ''.join(disorder_text)
-
+#endregion
