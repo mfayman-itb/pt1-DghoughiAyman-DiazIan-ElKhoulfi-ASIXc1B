@@ -30,7 +30,7 @@ def get_input(opt):
     text = input(options[opt])
     return text
 
-def get_data_from_server(opt):
+def get_data_from_server():
     url = 'https://api.api-ninjas.com/v1/dadjokes?limit=1'
     HEADERS = {
         'X-Api-Key': '5pr0Fq0BXisIc/TPmhtAmw==e6G2nAq8szLFLdGr'

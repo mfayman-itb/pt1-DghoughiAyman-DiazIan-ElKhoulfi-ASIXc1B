@@ -23,7 +23,7 @@ def menu():
             inp = input("Select option: ")
         match inp:
             case '1': text = get_input(inp)
-            case '2': text = get_data_from_server(inp)
+            case '2': text = get_data_from_server()
             case '3':
                 apikey = get_gpt_api_key()
                 text = get_data_from_chatgpt(inp)
