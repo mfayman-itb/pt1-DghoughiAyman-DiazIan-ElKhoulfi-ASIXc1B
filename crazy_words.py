@@ -22,34 +22,38 @@ def check_input(text):
     else:
         return str(text)
 
-
-
 def fix_punctuation(text):
-    words = []
-    current_word = ''
-    for char in text:
-        if char in ALLOWED:
-            current_word += char
-        else:
-            if current_word:
-                words.append(current_word)
-                current_word = ''
-            words.append(char)
-    if current_word:
-        words.append(current_word)
+    try:
+        words = []
+        current_word = ''
+        for char in text:
+            if char in ALLOWED:
+                current_word += char
+            else:
+                if current_word:
+                    words.append(current_word)
+                    current_word = ''
+                words.append(char)
+        if current_word:
+            words.append(current_word)
+    except Exception as e:
+        print(e)
     return words
 
 def disorder_words(words):
-    disorder_text = []
-    for word in words:
-        if len(word) <= 3 or not any(char in ALLOWED for char in word[1:-1]):
-            disorder_text.append(word)
-        else:
-            first_letter = word[0]
-            last_letter = word[-1]
-            middle_letters = list(word[1:-1])
-            random.shuffle(middle_letters)
-            disorder_word = first_letter + ''.join(middle_letters) + last_letter
-            disorder_text.append(disorder_word)
+    try:
+        disorder_text = []
+        for word in words:
+            if len(word) <= 3 or not any(char in ALLOWED for char in word[1:-1]):
+                disorder_text.append(word)
+            else:
+                first_letter = word[0]
+                last_letter = word[-1]
+                middle_letters = list(word[1:-1])
+                random.shuffle(middle_letters)
+                disorder_word = first_letter + ''.join(middle_letters) + last_letter
+                disorder_text.append(disorder_word)
+    except Exception as e:
+        print(e)
     return ''.join(disorder_text)
 #endregion

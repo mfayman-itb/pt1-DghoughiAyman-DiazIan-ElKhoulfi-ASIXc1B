@@ -13,9 +13,13 @@ from openai import OpenAI
 
 #region Functions
 def get_gpt_api_key():
-    with open("gptapikey", 'r') as apikey:
-        key = str(apikey.read())
-        return key
+    if os.path.exists('gptapikey'):
+        with open("gptapikey", 'r') as apikey:
+            key = str(apikey.read())
+            return key
+    else:
+        print("Couldn't find 'gptapikey' file with the OpenAI API key, please create it and add the key.")
+        exit(1)
 def get_input(opt):
     options = {
         '1': 'Enter text: ',
@@ -29,7 +33,7 @@ def get_input(opt):
 def get_data_from_server(opt, headers=None):
     url = get_input(opt)
     r = requests.get(url, headers=headers)
-    if r.status_code == 200:
+    if r.status_code == r.status_code == 200:
         text = r.text
     else:
         print(f'Error {r.status_code}')
