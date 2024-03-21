@@ -13,7 +13,7 @@ from openai import OpenAI
 
 #region Functions
 def get_gpt_api_key():
-    with open(".gitignore", 'r') as apikey:
+    with open("gptapikey", 'r') as apikey:
         key = str(apikey.read())
         return key
 def get_input(opt):
@@ -23,7 +23,7 @@ def get_input(opt):
         '3': 'Enter prompt: ',
         '4': 'Enter file to read: '
     }
-    text = input(opt[opt])
+    text = input(options[opt])
     return text
 
 def get_data_from_server(opt, headers=None):
@@ -36,10 +36,10 @@ def get_data_from_server(opt, headers=None):
         exit(1)
     return text
 
-def get_data_from_chatgpt(apikey, opt):
+def get_data_from_chatgpt(opt):
     try:
+        apikey = get_gpt_api_key()
         client = OpenAI(api_key=apikey)
-        api_key = apikey
         ENGINE = "gpt-3.5-turbo-instruct"
         ANSWER_QUANTITY = 1
         MAX_TOKENS = 150
