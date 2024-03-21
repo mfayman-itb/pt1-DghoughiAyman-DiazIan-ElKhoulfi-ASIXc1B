@@ -30,11 +30,15 @@ def get_input(opt):
     text = input(options[opt])
     return text
 
-def get_data_from_server(opt, headers=None):
-    url = get_input(opt)
-    r = requests.get(url, headers=headers)
-    if r.status_code == r.status_code == 200:
-        text = r.text
+def get_data_from_server(opt):
+    url = 'https://api.api-ninjas.com/v1/dadjokes?limit=1'
+    HEADERS = {
+        'X-Api-Key': '5pr0Fq0BXisIc/TPmhtAmw==e6G2nAq8szLFLdGr'
+    }
+    r = requests.get(url, headers=HEADERS)
+    if r.status_code == requests.codes.ok:
+        text = r.json()
+        text = text[0]['joke']
     else:
         print(f'Error {r.status_code}')
         exit(1)

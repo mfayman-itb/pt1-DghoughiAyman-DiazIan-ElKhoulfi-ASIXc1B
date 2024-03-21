@@ -10,15 +10,18 @@ import string
 #endregion
 
 #region Variables and Constants
-ALLOWED = string.ascii_letters + string.digits
+ALLOWED = string.ascii_letters
 #endregion
 
 #region Functions
 
-def check_input(text):
-    if not text or len(str(text)) <= 3:
-        print("Text is empty or too short.")
-        exit(1)
+def check_input(text, option):
+    if option != 2 or option != 4:
+        if not text or len(str(text)) <= 3:
+            print("Text is empty or too short.")
+            exit(1)
+        else:
+            return str(text)
     else:
         return str(text)
 

@@ -20,7 +20,7 @@ def menu():
         while str(inp) not in options:
             print(f'Option "{inp}" not available.')
             print(f"\n1:\tGet the data from the keyboard.\n2:\tGet the data from an URL.\n3:\tGet the data from the answer to a ChatGPT prompt.\n4:\tGet the data from a file.\n")
-            inp = int(input("Select option: "))
+            inp = input("Select option: ")
         match inp:
             case '1': text = get_input(inp)
             case '2': text = get_data_from_server(inp)
@@ -28,15 +28,15 @@ def menu():
                 apikey = get_gpt_api_key()
                 text = get_data_from_chatgpt(inp)
             case '4': text = get_data_from_file(inp)
-        return text
+        return text, inp
     except Exception as e:
         print(e)
 #endregion
 
 #region main
 def main():
-    text = menu()
-    text = check_input(text)
+    text, option = menu()
+    text = check_input(text, option)
     clean = fix_punctuation(text)
     result = disorder_words(clean)
     return print(result)
