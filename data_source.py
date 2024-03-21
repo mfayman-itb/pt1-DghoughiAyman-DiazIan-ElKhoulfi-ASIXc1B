@@ -67,6 +67,3 @@ def get_data_from_file(opt):
     return text
 #endregion
 
-#apikey = get_gpt_api_key()
-#print(get_data_from_chatgpt(apikey))
-#print(get_data_from_file('gptapikey'))

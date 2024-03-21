@@ -25,7 +25,7 @@ def menu():
             case '1': text = get_input(inp)
             case '2': text = get_data_from_server(inp)
             case '3':
-                apikey = get_gpt_api_key(inp)
+                apikey = get_gpt_api_key()
                 text = get_data_from_chatgpt(apikey, inp)
             case '4': text = get_data_from_file(inp)
         return text
@@ -36,8 +36,11 @@ def menu():
 #region main
 def main():
     text = menu()
+    text = check_input(text)
     clean = fix_punctuation(text)
     result = disorder_words(clean)
     return print(result)
-    main()
+
+main()
 #endregion
+
