@@ -13,7 +13,7 @@ from openai import OpenAI
 
 #region Functions
 def get_gpt_api_key():
-    with open("gptapikey", 'r') as apikey:
+    with open(".gitignore", 'r') as apikey:
         key = str(apikey.read())
         return key
 def get_input(opt):
