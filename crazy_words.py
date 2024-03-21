@@ -16,11 +16,12 @@ ALLOWED = string.ascii_letters + string.digits
 #region Functions
 
 def check_input(text):
-    if not text or text <= 3:
+    if not text or len(str(text)) <= 3:
         print("Text is empty or too short.")
         exit(1)
     else:
-        return text
+        return str(text)
+
 
 
 def fix_punctuation(text):
