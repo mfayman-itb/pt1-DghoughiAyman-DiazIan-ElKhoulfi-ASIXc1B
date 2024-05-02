@@ -7,39 +7,30 @@ Descripció: main program and menu
 #region Imports
 from data_source import *
 from crazy_words import *
-import random
-import string
+from logger import *
+from SystemColors import *
+import signal
+import time
 #endregion
+start = time.time()
+def sigint(sig, frame):
+    end = time.time()
+    lapse = end-start
+    logger('info', 'Program ended due to SIGINT, done in %3.f', lapse)
+    exit(2)
 
+signal.signal(signal.SIGINT, sigint)
+def main():
+    text = get_data_from_file()
+    check_input(text)
+    text = fix_punctuation(text)
+    text = disorder_words(text)
+    write_data_to_file(text)
 #region Functions
-def menu():
-    try:
-        options = ['1','2','3','4']
-        print(f"\n1:\tGet the data from the keyboard.\n2:\tGet the data from an URL.\n3:\tGet the data from the answer to a ChatGPT prompt.\n4:\tGet the data from a file.\n")
-        inp = input("Select option: ")
-        while str(inp) not in options:
-            print(f'Option "{inp}" not available.')
-            print(f"\n1:\tGet the data from the keyboard.\n2:\tGet the data from an URL.\n3:\tGet the data from the answer to a ChatGPT prompt.\n4:\tGet the data from a file.\n")
-            inp = input("Select option: ")
-        match inp:
-            case '1': text = get_input(inp)
-            case '2': text = get_data_from_server()
-            case '3':
-                apikey = get_gpt_api_key()
-                text = get_data_from_chatgpt(inp)
-            case '4': text = get_data_from_file(inp)
-        return text, inp
-    except Exception as e:
-        print(e)
+
 #endregion
 
 #region main
-def main():
-    text, option = menu()
-    text = check_input(text, option)
-    clean = fix_punctuation(text)
-    result = disorder_words(clean)
-    return print(result)
 
 main()
 #endregion
