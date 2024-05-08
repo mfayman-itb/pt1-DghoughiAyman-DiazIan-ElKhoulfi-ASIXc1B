@@ -8,9 +8,9 @@ Descripció: Release 3 Paraules boges
 from logger import *
 from crazy_words import *
 import os
-import requests
-import json
-from openai import OpenAI
+#import requests
+#import json
+#from openai import OpenAI
 #endregion
 
 inputDir = os.path.join('.','entrada')
