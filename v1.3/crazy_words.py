@@ -13,6 +13,7 @@ import string
 #region Variables and Constants
 ALLOWED = string.ascii_letters
 #endregion
+allDisordered = []
 
 #region Functions
 

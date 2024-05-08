@@ -21,11 +21,14 @@ def sigint(sig, frame):
 
 signal.signal(signal.SIGINT, sigint)
 def main():
-    text = get_data_from_file()
-    check_input(text)
-    text = fix_punctuation(text)
-    text = disorder_words(text)
-    write_data_to_file(text)
+    get_data_from_directory()
+    for t in allText:
+        text = check_input(t)
+        text = fix_punctuation(text)
+        allDisordered.append(disorder_words(text))
+        print(allDisordered)
+        write_data_to_files()
+
 #region Functions
 
 #endregion
