@@ -39,7 +39,7 @@ def main():
     text = check_input(text, option)
     clean = fix_punctuation(text)
     result = disorder_words(clean)
-    return print(result)
+
 
 main()
 #endregion

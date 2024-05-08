@@ -7,7 +7,6 @@ Descripció: Release 3 Paraules boges
 
 import os
 import logging
-from SystemColors import *
 
 logFile = os.path.join(os.path.join('.', 'log'), 'boges.log')
 logFormat = '%(asctime)s - %(levelname)s - %(message)s'
