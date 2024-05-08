@@ -1,10 +1,10 @@
 """
 Ayman Dghoughi, Ian Díaz i Nizar ElKhoulfi
-20/03/2024
+08/05/2024
 ASIXc1 UF2 A2 Disseny Modular i Descendent
-Descripció: definitions of different types of inputs (text, url, chatgpt and file)
+Descripció: Release 3 Paraules boges
 """
-#region Importsç
+#region Imports
 from logger import *
 from crazy_words import *
 import os
@@ -39,6 +39,7 @@ def get_data_from_directory():
                     text = txt.read()
                     allText.append(text)
                     filenames.append(file)
+    logger('info', f'All input data loaded ({filenames})')
 
 def write_data_to_file(text):
     try:
@@ -54,13 +55,9 @@ def write_data_to_file(text):
 
 def write_data_to_files():
     for i in range(len(filenames)):
-        print(i)
         filenames[i] = filenames[i].replace('.txt', '_boges.txt')
         disordered = allDisordered[i]
-        with open(os.path.join(outputDir, filenames[i]), 'a') as outFile:
+        with open(os.path.join(outputDir, filenames[i]), 'w') as outFile:
             outFile.write(disordered)
 
 #endregion
-
-get_data_from_directory()
-print(allText)

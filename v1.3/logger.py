@@ -1,8 +1,15 @@
+"""
+Ayman Dghoughi, Ian Díaz i Nizar ElKhoulfi
+08/05/2024
+ASIXc1 UF2 A2 Disseny Modular i Descendent
+Descripció: Release 3 Paraules boges
+"""
+
 import os
 import logging
 from SystemColors import *
 
-logFile = os.path.join('.', 'boges.log')
+logFile = os.path.join(os.path.join('.', 'log'), 'boges.log')
 logFormat = '%(asctime)s - %(levelname)s - %(message)s'
 logLevel = logging.DEBUG
 logMode = 'at'
@@ -15,5 +22,3 @@ def logger(type, message):
         case 'warning': logging.warning(message)
         case 'debug': logging.debug(message)
         case 'critical': logging.critical(message)
-
-logger('info', 'funxiona')
