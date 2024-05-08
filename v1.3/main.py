@@ -8,7 +8,6 @@ Descripció: Release 3 Paraules boges
 from data_source import *
 from crazy_words import *
 from logger import *
-from SystemColors import *
 import signal
 import time
 #endregion
