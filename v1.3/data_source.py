@@ -54,6 +54,8 @@ def write_data_to_file(text):
     logger('info', f'Results saved to: {file}')
 
 def write_data_to_files():
+    if not os.path.exists(outputDir):
+        os.mkdir(os.path.join('.', 'sortida'))
     for i in range(len(filenames)):
         filenames[i] = filenames[i].replace('.txt', '_boges.txt')
         disordered = allDisordered[i]
